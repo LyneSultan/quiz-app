@@ -8,7 +8,7 @@ const userSlice = createSlice({
   reducers: {
     incrementScore: (state) => {
       return {
-        score: state + 1
+        score: state.score + 1
       }
     },
   },
