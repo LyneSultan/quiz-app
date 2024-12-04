@@ -1,5 +1,6 @@
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import { Button } from '../../base/Button/Button.jsx';
 import { routes } from './../../routes/routes.js';
 import './../../style/base.css';
 const Quizzes = () => {
@@ -23,7 +24,7 @@ const Quizzes = () => {
             {quizzes.map((quiz) => (
               < div key={quiz.id}>
                 <div>{quiz.title}</div>
-                <button onClick={() => handleNavigate(quiz.id)}>click me</button>
+                <Button onClick={() => handleNavigate(quiz.id)} text="Click me" />
               </div>
             ))}
           </div>
