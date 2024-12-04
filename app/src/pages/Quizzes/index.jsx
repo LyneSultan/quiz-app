@@ -6,17 +6,22 @@ import './../../style/base.css';
 
 const Quizzes = () => {
   const quizzes = useSelector((state) => state.quizzes);
+  const user = useSelector((state) => state.user);
+
   const navigate = useNavigate();
 
-  console.log(routes);
+  console.log(user);
 
   const handleNavigate = (id) => {
     navigate(routes.quiz(id));
   };
 
   return (
+
     <div>
+      <h2>Score:{user.score}</h2>
       {!quizzes ? <h1>no quizzes</h1> :
+
         <div >
           <div className='flex space-around'>
 
