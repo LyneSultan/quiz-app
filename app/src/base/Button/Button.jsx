@@ -1,10 +1,10 @@
-// import { Button } from '@mui/base/Button';
+import Button from '@mui/material/Button';
 
-export const Button = ({ text, onClick }) => {
+export const ButtonComponent = ({ text, onClick }) => {
   return (
-    <button onClick={onClick}>
+    <Button variant="contained" color="primary" onClick={onClick}>
       {text}
-    </button>
+    </Button>
   );
 };
 
