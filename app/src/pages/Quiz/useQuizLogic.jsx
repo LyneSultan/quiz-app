@@ -6,16 +6,12 @@ import { useParams } from 'react-router-dom';
 import './../../style/base.css';
 export const useQuizLogic = () => {
   const quizzes = useSelector((state) => state.quizzes);
-  const user = useSelector((state) => state.user);
   const dispatch = useDispatch();
   const [answers, setAnswers] = useState({});
 
   const { id } = useParams();
-  // console.log(id);
-  console.log(user);
 
   const quiz = quizzes.find((quiz) => quiz.id === parseInt(id));
-  // console.log(quizzes);
 
   const handleAnswerChange = (questionId, answer) => {
     setAnswers((prevAnswers) => ({
@@ -25,18 +21,13 @@ export const useQuizLogic = () => {
   };
 
   const handleSubmit = () => {
-    // let score = 0;
 
     quiz.questions.forEach((question) => {
       const userAnswer = answers[question.id];
 
-      if (
-        (question.type === "multiple-choice" && userAnswer === question.correctAnswer) ||
-        (question.type === "input" && userAnswer === question.correctAnswer)
-      ) {
+      if ((question.type === "multiple-choice" && userAnswer === question.correctAnswer) ||
+        (question.type === "input" && userAnswer === question.correctAnswer)) {
         dispatch(incrementScore());
-
-        // score++;
       }
     });
 
