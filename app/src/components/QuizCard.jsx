@@ -1,5 +1,4 @@
 import { CardContent, Typography } from '@mui/material';
-import React from 'react';
 import { ButtonComponent } from './../base/Button/Button.jsx';
 
 const QuizCard = ({ quiz, handleNavigate }) => {

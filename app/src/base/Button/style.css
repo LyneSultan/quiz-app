@@ -1,0 +1,5 @@
+@import './../../colors/colors.css';
+
+.button-primary {
+  background-color: var(--primary-color) !important;
+}
