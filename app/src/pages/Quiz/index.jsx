@@ -6,14 +6,14 @@ import { useQuizLogic } from './useQuizLogic';
 
 const Quiz = () => {
   const { id } = useParams();
-  const { quiz, handleAnswerChange, handleSubmit } = useQuizLogic(id);
+  const { quiz, handleAnswerChange, handleSubmit, handleBack } = useQuizLogic(id);
 
   return (
     <>
       {!quiz ? (
         <h1>Not a valid quiz id</h1>
       ) : (
-        <div>
+        <div className='flex column align-center'>
           <h2>{quiz.title}</h2>
           <h3>Questions:</h3>
           <div>
@@ -25,7 +25,11 @@ const Quiz = () => {
               />
             ))}
           </div>
-          <ButtonComponent onClick={handleSubmit} text="Submit" />
+          <div className='flex'>
+            <ButtonComponent onClick={handleBack} text="Back" />
+            <ButtonComponent onClick={handleSubmit} text="Submit" />
+          </div>
+
         </div>
       )}
     </>
