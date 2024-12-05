@@ -1,15 +1,18 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate, useParams } from 'react-router-dom';
 import { incrementScore } from './../../redux/userSlice';
-
-import { useParams } from 'react-router-dom';
+import { routes } from './../../routes/routes';
 import './../../style/base.css';
+
 export const useQuizLogic = () => {
+  const navigate = useNavigate();
+  const { id } = useParams();
+
   const quizzes = useSelector((state) => state.quizzes);
   const dispatch = useDispatch();
   const [answers, setAnswers] = useState({});
 
-  const { id } = useParams();
 
   const quiz = quizzes.find((quiz) => quiz.id === parseInt(id));
 
@@ -32,9 +35,14 @@ export const useQuizLogic = () => {
     });
 
   }
+  const handleBack = () => {
+    navigate(routes.quizzes);
+  }
+
   return {
     quiz,
     handleAnswerChange,
     handleSubmit,
+    handleBack
   };
 }
