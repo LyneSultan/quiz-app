@@ -1,6 +1,8 @@
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { Button } from '../../base/Button/Button.jsx';
+// import Button from '@mui/material/Button';
+import Card from '@mui/material/Card';
+import QuizCard from '../../components/QuizCard.jsx';
 import { routes } from './../../routes/routes.js';
 import './../../style/base.css';
 
@@ -16,6 +18,9 @@ const Quizzes = () => {
     navigate(routes.quiz(id));
   };
 
+
+
+
   return (
 
     <div>
@@ -26,10 +31,14 @@ const Quizzes = () => {
           <div className='flex space-around'>
 
             {quizzes.map((quiz) => (
-              < div key={quiz.id}>
-                <div>{quiz.title}</div>
-                <Button onClick={() => handleNavigate(quiz.id)} text="Click me" />
-              </div>
+              <Card variant="outlined" key={quiz.id}>
+                <QuizCard quiz={quiz} handleNavigate={handleNavigate} />
+                {/* <div>{quiz.title}</div>
+
+                <ButtonComponent onClick={() => handleNavigate(quiz.id)} text="Click me" /> */}
+              </Card>
+
+
             ))}
           </div>
         </div>
