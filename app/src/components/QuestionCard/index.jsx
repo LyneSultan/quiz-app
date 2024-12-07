@@ -1,7 +1,7 @@
-import TextField from '@mui/material/TextField';
 import Input from './../../base/Input/Input';
 
 const QuestionCard = ({ question, handleAnswerChange }) => {
+
   return (
     <div key={question.id}>
       <p>{question.question}</p>
@@ -23,13 +23,6 @@ const QuestionCard = ({ question, handleAnswerChange }) => {
         <div>
           <Input
             placeholder="Type your answer"
-            onChange={(e) => handleAnswerChange(question.id, e.target.value)}
-          />
-          <TextField
-            id={`text-field-${question.id}`}
-            label="Your Answer"
-            variant="outlined"
-            placeholder="Type here"
             onChange={(e) => handleAnswerChange(question.id, e.target.value)}
           />
         </div>
