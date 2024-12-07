@@ -1,5 +1,7 @@
 export const routes =
 {
-  quizzes: "/",
-  quiz: (id) => "/quiz/" + id
+  login: "/",
+  quizzes: "/quizzes",
+  quiz: (id) => "/quiz/" + id,
+
 }
