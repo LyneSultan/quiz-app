@@ -53,6 +53,7 @@ export const register = async (req, res) => {
       age,
       password: hashed,
     });
+    
     const token = await jwt.sign({ userId: user.id }, "secret");
 
 
