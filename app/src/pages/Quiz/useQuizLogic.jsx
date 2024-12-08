@@ -14,7 +14,7 @@ export const useQuizLogic = () => {
   const [answers, setAnswers] = useState({});
 
 
-  const quiz = quizzes.find((quiz) => quiz.id === parseInt(id));
+  const quiz = quizzes.quizzes.find((quiz) => quiz._id === String(id));
 
   const handleAnswerChange = (questionId, answer) => {
     setAnswers((prevAnswers) => ({

@@ -13,7 +13,7 @@ const QuizCard = ({ quiz, handleNavigate }) => {
         <ButtonComponent
           variant="contained"
           color="primary"
-          onClick={() => handleNavigate(quiz.id)}
+          onClick={() => handleNavigate(quiz._id)}
           text="Take this Quiz"
         />
 
