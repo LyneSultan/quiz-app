@@ -26,6 +26,8 @@ const Login = () => {
     )
       .then(response => {
         console.log(response);
+        localStorage.setItem("token", response.data.token);
+
         navigate(routes.quizzes);
       })
       .catch(error => {
@@ -48,6 +50,7 @@ const Login = () => {
     )
       .then(response => {
         console.log(response);
+        localStorage.setItem("token", response.data.token);
         navigate(routes.quizzes);
       })
       .catch(error => {
