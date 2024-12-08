@@ -1,14 +1,18 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { quizData } from './../data/quizzzes_data';
 
 export const quizzesSlice = createSlice({
   name: 'quizzes',
-  initialState: quizData,
+  initialState: {
+    quizzes: [],
+  },
   reducers: {
-    loadQuizzes: () => { },
-  }
-})
+    setQuizzes: (state, action) => {
+      state.quizzes = action.payload;
+    },
 
-export const { loadQuizzes } = quizzesSlice.actions;
+  },
+});
+
+export const { setQuizzes } = quizzesSlice.actions;
 
 export default quizzesSlice.reducer;
